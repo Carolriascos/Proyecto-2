@@ -1,0 +1,49 @@
+const contenedorDetalle = document.querySelector("#contenedor"); // se trae el contenedor para cargar la pagina producto //
+
+function actualizar_Pagina_Detalle() {
+  console.log("entreW");
+  let datospeluche = JSON.parse(localStorage.getItem("peluche"));
+  console.log(datospeluche.imagen);
+
+  const div = document.createElement("div");
+  div.classList.add("contenedor");
+  div.innerHTML = `    
+        <div class ="columna">
+            <img id="imagenpeluchemickey" src="${datospeluche.imagen}" alt="">
+        </div>
+        
+        <div class="columnados">
+            <h1 class="tex">${datospeluche.titulo}" </h1>
+            <h3>${datospeluche.precio}</h3>
+            <div class="border">
+                <br>
+                <br>
+                <h2>Quanty</h2> <br>
+            </div>
+
+            <div class="contadorr">
+
+                <button onclick="disminuir()">−</button>
+                <p><span id="cantidad">3</span></p>
+
+                <button id="bton" onclick="incremento()">+</button>
+            </div>
+            <div class="borde">
+            </div>
+
+            <p id="paf">Our leader of the club is sure to be a swell addition to any
+                clubhouse. Soft plush ${datospeluche.titulo} will keep you smilling through the
+                day, rain or shine. See ya real soon!
+            </p>
+
+            <a href="carrito.html"><button class="boton">Shop now</button></a><a href="favorito.html"><i id="icos"
+                    class="fa fa-heart" style="font-size:36px;color:rgb(40, 108, 255)"></a></i>
+
+        </div>
+    </div>
+
+
+     `;
+  contenedorDetalle.append(div);
+}
+actualizar_Pagina_Detalle();
